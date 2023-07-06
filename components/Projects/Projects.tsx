@@ -56,7 +56,7 @@ const projects: Project[] = [
   },
   {
     img: {
-      url: "https://cdn.sanity.io/images/ruecft06/production/da41d97ee45b4016b4eea9f819b7a66cd300de66-1432x977.png",
+      url: "https://cdn.sanity.io/images/ruecft06/production/c505a86032cc0d6cba37f216b6827f6249dd3390-1316x977.png",
     },
     link: {
       url: "https://henryokev2.vercel.app/",
