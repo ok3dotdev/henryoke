@@ -7,22 +7,22 @@ export default function About() {
         About
       </h3>
       <p className="mb-4 font-light  text-[#D0CFCF] leading-7">
-        Recently, I've been working at a Media company, collaborating closely
+        {`Recently, I've been working at a Media company, collaborating closely
         with science writers. Together, we've been building cutting-edge
         websites using technologies like React, TypeScript, and Node. It's been
         an exciting journey, combining my passion for development with the
         opportunity to contribute to the world of science communication.
         Recently, I've been working at a Media company, collaborating closely
-        with science writers.
+        with science writers.`}
       </p>
       <p className="mb-4 font-light text-[#D0CFCF] leading-7">
-        Recently, I've been working at a Media company, collaborating closely
+        {`Recently, I've been working at a Media company, collaborating closely
         with science writers. Together, we've been building cutting-edge
-        websites using technologies like React,
+        websites using technologies like React,`}
       </p>
       <p className="mb-4 font-light text-[#D0CFCF] leading-7">
-        Hey there! I'm a friendly front-end developer based in Toronto, Canada,
-        with experience in the Media / Advertising and ecommerce industries
+        {`Hey there! I'm a friendly front-end developer based in Toronto, Canada,
+        with experience in the Media / Advertising and ecommerce industries`}
       </p>
     </div>
   );
