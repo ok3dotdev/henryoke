@@ -54,6 +54,16 @@ const projects: Project[] = [
     },
     title: "Resumefy - resume builder",
   },
+  {
+    img: {
+      url: "https://cdn.sanity.io/images/ruecft06/production/da41d97ee45b4016b4eea9f819b7a66cd300de66-1432x977.png",
+    },
+    link: {
+      url: "https://henryokev2.vercel.app/",
+      github: "https://github.com/sickerman/Projectxyz",
+    },
+    title: "Portfolio V2",
+  },
 ];
 
 const Projects = () => {
