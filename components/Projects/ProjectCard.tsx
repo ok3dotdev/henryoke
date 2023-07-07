@@ -16,7 +16,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         <Image
           className="rounded-t-md"
           src={img.url}
-          alt=""
+          alt={title}
           width={550}
           height={350}
         />

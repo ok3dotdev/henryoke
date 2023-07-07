@@ -3,7 +3,9 @@ import { BsLinkedin, BsGithub, BsTwitter, BsInstagram } from "react-icons/bs";
 export default function Hero() {
   return (
     <div className="mt-32 mb-24">
-      <h1 className="text-4xl font-bold mb-2">Hello, Im Henry Oke 👋🏾</h1>
+      <h1 className="text-[29px] md:text-5xl font-bold mb-2">
+        Hello, Im Henry Oke 👋🏾
+      </h1>
       <p className="mb-8 text-[#D0CFCF] font-light max-w-sm">
         {` I'm a${" "}`}
         <span className="font-bold text-white">
