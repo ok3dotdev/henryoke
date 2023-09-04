@@ -1,11 +1,12 @@
-import "./globals.css";
-import { Inter } from "next/font/google";
+import './globals.css';
+import { Inter } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/react';
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
-  title: "Henry Oke",
-  description: "Front-end Software Developer",
+  title: 'Henry Oke',
+  description: 'Front-end Software Developer',
 };
 
 export default function RootLayout({
@@ -15,10 +16,13 @@ export default function RootLayout({
 }) {
   return (
     <html
-      lang="en"
-      className="bg-white text-black dark:bg-[#111010] dark:text-white"
+      lang='en'
+      className='bg-white text-black dark:bg-[#111010] dark:text-white'
     >
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
