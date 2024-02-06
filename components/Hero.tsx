@@ -14,7 +14,7 @@ export default async function Hero() {
       <p className='mb-8 text-[#D0CFCF] font-light max-w-sm'>
         {` I'm a${' '}`}
         <span className='font-bold text-white'>
-          Front-end Web Developer
+          Frontend Web Developer
         </span>{' '}
         {`dedicated to creating inclusive digital experiences that are accessible
         to all.`}
