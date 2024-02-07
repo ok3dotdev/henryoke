@@ -28,6 +28,6 @@ jobs:
           cache: 'npm'
       - run: npm ci
       - run: npm run build --if-present
-      - name: restart PM2
-        run: cd /home/ubuntu
-      - run: pm2 restart ecosystem.config.js
+      - name: Restart PM2
+        run: pm2 restart ecosystem.config.js
+        working-directory: ~/ # Specify the path to the project directory
