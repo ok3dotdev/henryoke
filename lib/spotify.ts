@@ -1,3 +1,5 @@
+// import { unstable_noStore as noStore } from 'next/cache';
+
 export const getAccessToken = async () => {
   const refresh_token = process.env.SPOTIFY_REFRESH_TOKEN;
   const TOKEN_ENDPOINT = 'https://accounts.spotify.com/api/token';
@@ -17,13 +19,13 @@ export const getAccessToken = async () => {
       grant_type: 'refresh_token',
       refresh_token: refresh_token || '',
     }).toString(),
-    cache: 'no-store',
   });
 
   return response.json();
 };
 
 export const getNowPlaying = async () => {
+  // console.log('getting now playing');
   // noStore();
   const CURRENT_SONG = 'https://api.spotify.com/v1/me/player/currently-playing';
   const { access_token } = await getAccessToken();

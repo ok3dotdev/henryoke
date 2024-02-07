@@ -1,5 +1,6 @@
 import { FaHashtag } from 'react-icons/fa';
 import NowPlaying from './NowPlaying';
+
 export default async function About() {
   return (
     <div className='mb-24'>
