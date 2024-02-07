@@ -1,8 +1,8 @@
-import nodemailer, { Transporter } from "nodemailer";
+import nodemailer, { Transporter } from 'nodemailer';
 
 const createTransporter = (): Transporter => {
   return nodemailer.createTransport({
-    service: "Gmail",
+    service: 'Gmail',
     auth: {
       user: process.env.GMAIL_EMAIL_ADDRESS,
       pass: process.env.GMAIL_PASS,
