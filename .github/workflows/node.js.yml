@@ -35,8 +35,9 @@ jobs:
           echo "GMAIL_PASS: $GMAIL_PASS"
           echo "SPOTIFY_CLIENT_ID: $SPOTIFY_CLIENT_ID"
           echo "SPOTIFY_CLIENT_SECRET: $SPOTIFY_CLIENT_SECRET"
-          echo "SPOTIFY_REFRESH_TOKEN: $SPOTIFY_REFRESH_TOKEN"
+          echo "SPOTIFY_REFRESH_TOKEN: ${SPOTIFY_REFRESH_TOKEN}"
           echo "SPOTIFY_CODE: $SPOTIFY_CODE"
+          echo ${{secrets.SPOTIFY_REFRESH_TOKEN}}
       # - name: change Directory
       #   run: cd /home/ubuntu/actions-runner/_work/henryoke/henryoke
       # - run: pm2 restart 0
