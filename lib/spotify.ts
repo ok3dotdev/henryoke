@@ -6,6 +6,7 @@ export const getAccessToken = async () => {
 
   const { SPOTIFY_CLIENT_ID: client_Id, SPOTIFY_CLIENT_SECRET: client_Secret } =
     process.env;
+  console.log('idssss', client_Id, client_Secret, process.env.GMAIL_PASS);
 
   const response = await fetch(TOKEN_ENDPOINT, {
     method: 'POST',
