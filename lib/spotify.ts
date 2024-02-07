@@ -25,7 +25,7 @@ export const getAccessToken = async () => {
 };
 
 export const getNowPlaying = async () => {
-  // console.log('getting now playing');
+  console.log('getting now playing');
   // noStore();
   const CURRENT_SONG = 'https://api.spotify.com/v1/me/player/currently-playing';
   const { access_token } = await getAccessToken();
