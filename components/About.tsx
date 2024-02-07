@@ -13,6 +13,7 @@ export default async function About() {
       <p className='mb-4 font-light  text-[#D0CFCF] leading-7'>
         {`Collaborating closely with writers and e-commerce merchants has allowed me to leverage and passion for development to build solutions and experiences to meet business goals. I bring a results-oriented approach to my work, striving to deliver seamless and intuitive user experiences. I am currently seeking full-time frontend software development and full-stack roles where I can leverage my expertise to drive innovation and make a meaningful impact. Let's connect and explore how we can work together!`}
       </p>
+      {/* @ts-expect-error Async Server Component */}
       <NowPlaying />
     </div>
   );

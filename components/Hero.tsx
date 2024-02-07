@@ -1,11 +1,7 @@
 import Link from 'next/link';
 import { BsLinkedin, BsGithub, BsTwitter, BsInstagram } from 'react-icons/bs';
 
-// const getNowPlaying = async ()=>{
-//   const {accesToken} = await
-// }
-
-export default async function Hero() {
+export default function Hero() {
   return (
     <div className='mt-32 mb-24'>
       <h1 className='text-[29px] md:text-5xl font-bold mb-2'>
