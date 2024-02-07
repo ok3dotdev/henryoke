@@ -1,5 +1,3 @@
-import { unstable_noStore as noStore } from 'next/cache';
-
 export const getAccessToken = async () => {
   const refresh_token = process.env.SPOTIFY_REFRESH_TOKEN;
   const TOKEN_ENDPOINT = 'https://accounts.spotify.com/api/token';
@@ -19,13 +17,14 @@ export const getAccessToken = async () => {
       grant_type: 'refresh_token',
       refresh_token: refresh_token || '',
     }).toString(),
+    cache: 'no-store',
   });
 
   return response.json();
 };
 
 export const getNowPlaying = async () => {
-  noStore();
+  // noStore();
   const CURRENT_SONG = 'https://api.spotify.com/v1/me/player/currently-playing';
   const { access_token } = await getAccessToken();
 
@@ -63,7 +62,7 @@ export const getNowPlaying = async () => {
     const isPlaying = nowPlaying.is_playing;
     const title = nowPlaying.item.name;
     const artist = nowPlaying.item.artists
-      .map((_artist) => _artist.name)
+      .map((_artist: any) => _artist.name)
       .join(', ');
     const album = nowPlaying.item.album.name;
     const albumImageUrl = nowPlaying.item.album.images[0].url;
