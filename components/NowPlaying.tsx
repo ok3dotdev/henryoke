@@ -1,15 +1,13 @@
-import { unstable_noStore as noStore } from 'next/cache';
 import { getNowPlaying } from '../lib/spotify';
 
 export default async function NowPlaying() {
-  noStore();
   const song = await getNowPlaying();
   const title = song?.title || 'Not Playing';
   return (
     <div className='flex my-4 items-center gap-4'>
       {' '}
       <SpotifyLogo />
-      Now Playing . {title}
+      Now PLaying . {title}
     </div>
   );
 }

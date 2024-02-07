@@ -1,7 +1,7 @@
-// import { unstable_noStore as noStore } from 'next/cache';
+import { unstable_noStore as noStore } from 'next/cache';
 
 export const getAccessToken = async () => {
-  const refresh_token = process.env.SPOTIFY_REFRESH_TOKEN;
+  const refresh_token = process.env.SPOTIFY_REFRESH_TOKEN || '';
   const TOKEN_ENDPOINT = 'https://accounts.spotify.com/api/token';
 
   const { SPOTIFY_CLIENT_ID: client_Id, SPOTIFY_CLIENT_SECRET: client_Secret } =
@@ -17,7 +17,7 @@ export const getAccessToken = async () => {
     },
     body: new URLSearchParams({
       grant_type: 'refresh_token',
-      refresh_token: refresh_token || '',
+      refresh_token,
     }).toString(),
   });
 
@@ -26,9 +26,15 @@ export const getAccessToken = async () => {
 
 export const getNowPlaying = async () => {
   console.log('getting now playing');
-  // noStore();
+  noStore();
+  const res = await fetch(
+    'https://my-json-server.typicode.com/ok3dotdev/articles/posts'
+  );
+  const data = await res.json();
+  console.log('data', data);
   const CURRENT_SONG = 'https://api.spotify.com/v1/me/player/currently-playing';
   const { access_token } = await getAccessToken();
+  console.log('Accesst', access_token);
 
   try {
     const res = await fetch(CURRENT_SONG, {
