@@ -28,16 +28,6 @@ jobs:
           cache: 'npm'
       - run: npm ci
       - run: npm run build --if-present
-      - name: Debug Environment Variables
-        run: |
-          echo "RESEND_API_KEY: $RESEND_API_KEY"
-          echo "GMAIL_EMAIL_ADDRESS: $GMAIL_EMAIL_ADDRESS"
-          echo "GMAIL_PASS: $GMAIL_PASS"
-          echo "SPOTIFY_CLIENT_ID: $SPOTIFY_CLIENT_ID"
-          echo "SPOTIFY_CLIENT_SECRET: $SPOTIFY_CLIENT_SECRET"
-          echo "SPOTIFY_REFRESH_TOKEN: ${SPOTIFY_REFRESH_TOKEN}"
-          echo "SPOTIFY_CODE: $SPOTIFY_CODE"
-          echo ${{secrets.SPOTIFY_REFRESH_TOKEN}}
-      # - name: change Directory
-      #   run: cd /home/ubuntu/actions-runner/_work/henryoke/henryoke
-      # - run: pm2 restart 0
+      - name: change Directory
+        run: cd /home/ubuntu/actions-runner/_work/henryoke/henryoke
+      - run: pm2 restart 0 --update-env RESEND_API_KEY="${{secrets.RESEND_API_KEY}}" GMAIL_EMAIL_ADDRESS="${{secrets.GMAIL_EMAIL_ADDRESS}}" GMAIL_PASS="${{secrets.GMAIL_PASS}}" SPOTIFY_CLIENT_ID="${{secrets.SPOTIFY_CLIENT_ID}}" SPOTIFY_CLIENT_SECRET="${{secrets.SPOTIFY_CLIENT_SECRET}}" SPOTIFY_REFRESH_TOKEN="${{secrets.SPOTIFY_REFRESH_TOKEN}}" SPOTIFY_CODE="${{secrets.SPOTIFY_CODE}}"
