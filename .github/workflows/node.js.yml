@@ -28,6 +28,6 @@ jobs:
           cache: 'npm'
       - run: npm ci
       - run: npm run build --if-present
-      - name: change Directory
-        run: cd /home/ubuntu/actions-runner/_work/henryoke/henryoke
+      - name: restart PM2
+        run: cd /home/ubuntu
       - run: pm2 restart ecosystem.config.js
