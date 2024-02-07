@@ -38,7 +38,7 @@ export const getNowPlaying = async () => {
     });
 
     if (res.status === 204 || res.status > 400) {
-      //   console.log('Status not playing');
+      console.log('Status not playing');
       return null;
     }
 
@@ -48,7 +48,7 @@ export const getNowPlaying = async () => {
       if (contentType && contentType.includes('application/json')) {
         nowPlaying = await res.json();
       } else {
-        // console.log('Response is not JSON:', res.statusText);
+        console.log('Response is not JSON:', res.statusText);
         return null; // or handle non-JSON response accordingly
       }
     } catch (error) {
@@ -57,7 +57,7 @@ export const getNowPlaying = async () => {
     }
 
     if (nowPlaying?.item === null) {
-      //   console.log('Status not playing');
+      console.log('Status not playing');
       return null;
     }
 
@@ -69,7 +69,7 @@ export const getNowPlaying = async () => {
     const album = nowPlaying.item.album.name;
     const albumImageUrl = nowPlaying.item.album.images[0].url;
     const songUrl = nowPlaying.item.external_urls.spotify;
-
+    console.log('alb', title);
     return {
       album,
       albumImageUrl,
