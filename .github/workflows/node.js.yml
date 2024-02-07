@@ -29,5 +29,4 @@ jobs:
       - run: npm ci
       - run: npm run build --if-present
       - name: Restart PM2
-        run: pm2 restart ecosystem.config.js
-        working-directory: ~/ # Specify the path to the project directory
+        run: pm2 restart ~/ecosystem.config.js
