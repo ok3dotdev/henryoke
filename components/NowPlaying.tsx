@@ -7,7 +7,7 @@ export default async function NowPlaying() {
     <div className='flex my-4 items-center gap-4'>
       {' '}
       <SpotifyLogo />
-      Now PLaying . {title}
+      Now Playing . {title}
     </div>
   );
 }
