@@ -6,7 +6,7 @@ export const getAccessToken = async () => {
 
   const { SPOTIFY_CLIENT_ID: client_Id, SPOTIFY_CLIENT_SECRET: client_Secret } =
     process.env;
-  console.log('idssss', client_Id, client_Secret, process.env.GMAIL_PASS);
+  // console.log('idssss', client_Id, client_Secret, process.env.GMAIL_PASS);
 
   const response = await fetch(TOKEN_ENDPOINT, {
     method: 'POST',
@@ -26,16 +26,13 @@ export const getAccessToken = async () => {
 };
 
 export const getNowPlaying = async () => {
-  console.log('getting now playing');
   noStore();
   const res = await fetch(
     'https://my-json-server.typicode.com/ok3dotdev/articles/posts'
   );
   const data = await res.json();
-  console.log('data', data);
   const CURRENT_SONG = 'https://api.spotify.com/v1/me/player/currently-playing';
   const { access_token } = await getAccessToken();
-  console.log('Accesst', access_token);
 
   try {
     const res = await fetch(CURRENT_SONG, {
@@ -45,7 +42,7 @@ export const getNowPlaying = async () => {
     });
 
     if (res.status === 204 || res.status > 400) {
-      console.log('Status not playing');
+      // console.log('Status not playing');
       return null;
     }
 
@@ -59,7 +56,7 @@ export const getNowPlaying = async () => {
         return null; // or handle non-JSON response accordingly
       }
     } catch (error) {
-      console.error('Error parsing JSON:');
+      // console.error('Error parsing JSON:');
       return null;
     }
 
@@ -76,7 +73,7 @@ export const getNowPlaying = async () => {
     const album = nowPlaying.item.album.name;
     const albumImageUrl = nowPlaying.item.album.images[0].url;
     const songUrl = nowPlaying.item.external_urls.spotify;
-    console.log('alb', title);
+    // console.log('alb', title);
     return {
       album,
       albumImageUrl,
