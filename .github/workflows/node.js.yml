@@ -1,32 +1,48 @@
-name: Node.js CI
+name: Deploy Website
 
 on:
   push:
     branches: ['main']
 
 jobs:
-  build:
+  checkout_and_build:
     runs-on: self-hosted
-
     strategy:
       matrix:
         node-version: [20.11.0]
-    env:
-      RESEND_API_KEY: ${{secrets.RESEND_API_KEY}}
-      GMAIL_EMAIL_ADDRESS: ${{secrets.GMAIL_EMAIL_ADDRESS}}
-      GMAIL_PASS: ${{secrets.GMAIL_PASS}}
-      SPOTIFY_CLIENT_ID: ${{secrets.SPOTIFY_CLIENT_ID}}
-      SPOTIFY_CLIENT_SECRET: ${{secrets.SPOTIFY_CLIENT_SECRET}}
-      SPOTIFY_REFRESH_TOKEN: ${{secrets.SPOTIFY_REFRESH_TOKEN}}
-      SPOTIFY_CODE: ${{secrets.SPOTIFY_CODE}}
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout source
+        uses: actions/checkout@v3
+
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
-      - run: npm ci
-      - run: npm run build --if-present
-      - name: Restart PM2
-        run: pm2 restart ~/ecosystem.config.js
+
+      - name: Set Environment Variables in .env
+        run: |
+          echo "RESEND_API_KEY=${{ secrets.RESEND_API_KEY }}" >> .env
+          echo "GMAIL_EMAIL_ADDRESS=${{ secrets.GMAIL_EMAIL_ADDRESS }}" >> .env
+          echo "GMAIL_PASS=${{ secrets.GMAIL_PASS }}" >> .env
+          echo "SPOTIFY_CLIENT_ID=${{ secrets.SPOTIFY_CLIENT_ID }}" >> .env
+          echo "SPOTIFY_CLIENT_SECRET=${{ secrets.SPOTIFY_CLIENT_SECRET }}" >> .env
+          echo "SPOTIFY_REFRESH_TOKEN=${{ secrets.SPOTIFY_REFRESH_TOKEN }}" >> .env
+          echo "SPOTIFY_CODE=${{ secrets.SPOTIFY_CODE }}" >> .env
+
+      - name: Build docker image
+        run: docker build -t my-website .
+
+  deploy:
+    needs: checkout_and_build
+    runs-on: self-hosted
+    strategy:
+      matrix:
+        node-version: [20.11.0]
+    steps:
+      - name: Delete old container
+        run: |
+          docker rm -f my-website-container || true
+
+      - name: Run docker container
+        run: docker run -p 3000:3000 --name my-website-container my-website
