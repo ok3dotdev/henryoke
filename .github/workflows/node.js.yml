@@ -45,4 +45,4 @@ jobs:
           docker rm -f my-website-container || true
 
       - name: Run docker container
-        run: docker run -p 3000:3000 --name my-website-container my-website
+        run: docker run -d -p 3000:3000 --name my-website-container my-website
