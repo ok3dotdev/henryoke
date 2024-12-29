@@ -9,11 +9,8 @@ export default function Hero() {
       </h1>
       <p className='mb-8 text-[#D0CFCF] font-light max-w-sm'>
         {` I'm a${' '}`}
-        <span className='font-bold text-white'>
-          Front-end Web Developer
-        </span>{' '}
-        {`dedicated to creating inclusive digital experiences that are accessible
-        to all.`}
+        <span className='font-bold text-white'>Software Developer</span>{' '}
+        {`who enjoys building applications that connect people 🌍 through shared digital experiences.`}
       </p>
       <div className='flex gap-8'>
         <Link href={'https://www.linkedin.com/in/henry-oke/'} target='_blank'>

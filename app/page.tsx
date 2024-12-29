@@ -11,7 +11,7 @@ export default async function HomePage() {
     <main className='px-7 lg:max-w-4xl items-center mx-auto'>
       <Hero />
       {/* @ts-expect-error Async Server Component */}
-      <About />
+      {/* <About /> */}
       <Experience />
       <Projects />
       <Contact />
